@@ -16,7 +16,10 @@ public class TreasureCoordinates{
 {
 //Code goes here
     
-//determineCoordinates() 
+ public determineCoordinates(void)
+{
+
+}
 }
 }
 
