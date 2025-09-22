@@ -9,6 +9,8 @@ public static void main(String[] args)
 //Code goes here
     
 System.out.println("Hola");
+System.out.println("Test comment");
     //determineCoordinates() 
 }
 }
+
