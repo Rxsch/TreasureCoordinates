@@ -56,15 +56,13 @@ public class TreasureCoordinates{
     ArrayList<String> yCoordinate=decimalGenerator(rightPart);  
 
     //Combine results into a coordinate
-    for(int j=0; i<xCoordinate.size();j++)
-    {
-        for (int k=0; j<yCoordinate.size(); k++)
-        {
-            String x=xCoordinate.get(j);
-            String y=yCoordinate.get(k);
-            processedDigitsList.add("(" + x + "," + y + ")");
-        }
+    for (int j = 0; j < xCoordinate.size(); j++) {
+    for (int k = 0; k < yCoordinate.size(); k++) {
+        String x = xCoordinate.get(j);
+        String y = yCoordinate.get(k);
+        processedDigitsList.add("(" + x + "," + y + ")");
     }
+}
 }
  }
 
@@ -78,7 +76,7 @@ public class TreasureCoordinates{
     ArrayList<String> results = new ArrayList<>();
     //First store the possibilities without decimals
     results.add(list);
-    
+
  //Start adding decimals if it is more than one number
  if(isValid)
  {
