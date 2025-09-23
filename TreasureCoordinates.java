@@ -13,22 +13,40 @@ public class TreasureCoordinates{
     (1.2, 3)
     (12, 3)
     */
+//Main
     public static void main(String[] args)
 {
-/*
-This list will store all the possible combinations. Form (x,y)
-Each index will be a possible coordinate.
-*/
-ArrayList processedDigitsList=new ArrayList<>(String);
+//Boolean variable that checks if the number can be splitted into decimal
+boolean isValid=0;
     
-/*
-This function takes a String of digits in between parenthesis and
-uses backtracking to find all possible combinations
-*/
- public ArrayList<String> determineCoordinates(String unprocessedDigits)
-{
 
+ 
 }
+    /*
+    This function takes a String of digits in between parenthesis and
+    uses backtracking to find all possible combinations adding a decimal 
+    point without changing the order
+    */
+    public ArrayList<String> determineCoordinates(String rawDigits)
+{
+    //This takes out the parenthesis of the parameter String
+    String newList= rawDigits.substring(1,rawDigits.length());
+    
+    /*
+    This list will store all the possible combinations. Form (x,y)
+    Each index will be a possible coordinate.
+    */
+    ArrayList <String> processedDigitsList=new ArrayList<>();
+
+    //Returns the ArrayList of results
+    return processedDigitsList;
 }
+
+/*
+ * This funcion will split the newList into all the possible combinations.
+ */
+ public String listSpliter(String list){
+
+ }
 }
 
