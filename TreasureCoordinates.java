@@ -56,13 +56,13 @@ public class TreasureCoordinates{
     ArrayList<String> yCoordinate=decimalGenerator(rightPart);  
 
     //Combine results into a coordinate
-    for(int i=0; i<xCoordinate.size();i++)
+    for(int j=0; i<xCoordinate.size();j++)
     {
-        for (int j=0; j<yCoordinate.size(); j++)
+        for (int k=0; j<yCoordinate.size(); k++)
         {
-            String x=xCoordinate.get(i);
-            String y=yCoordinate.get(j);
-            processedDigitsList.add("(" + x + "," + y + ")");
+            String x=xCoordinate.get(j);
+            String y=yCoordinate.get(k);
+            processedDigitsList.add("(" + j + "," + k + ")");
         }
     }
 }
