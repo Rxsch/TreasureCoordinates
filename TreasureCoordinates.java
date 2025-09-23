@@ -70,13 +70,33 @@ public class TreasureCoordinates{
  /*This function will put a decimal in all available spaces*/
  public ArrayList<String> decimalGenerator(String list)
  {  
+    //ArrayList to store all the results 
+    ArrayList<String> results = new ArrayList<>();
+
      /*Boolean variable that checks if the number can be splitted 
      into decimal because the number has two or more digits*/
     boolean isValid= list.length() >1;
-    //ArrayList to store all the results 
-    ArrayList<String> results = new ArrayList<>();
-    
 
+    /*Part that removes irrelevant ceroes ex: 012 is not a valid result
+     should be just 12*/
+if(list.charAt(0)== '0'){
+    if(list.length()==1){
+        results.add("0");
+    }
+   else if(list.charAt(list.length() - 1) != '0'){
+   results.add("0."+ list.substring(1));
+   }
+    return results;
+}
+
+//Delete zeroes at the end
+if(list.charAt(list.length()-1) == '0')
+{
+results.add(list);
+return results;
+}
+
+//Part that handles regular cases without 0's
  //Start adding decimals if it is more than one number
  if(isValid)
  {
@@ -89,8 +109,8 @@ Increase the i position after each iteration
 results.add(stringWithDecimals);
  }
  }
- //First store the possibilities without decimals
-    results.add(list);
+ //Store the possibilities without decimals
+ results.add(list);
  return results; 
  }
 }
