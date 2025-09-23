@@ -13,11 +13,12 @@ public class TreasureCoordinates{
     (1.2, 3)
     (12, 3)
     */
+    //Boolean variable that checks if the number can be splitted into decimal
     boolean isValid=false;
 //Main
     public static void main(String[] args)
 {
-//Boolean variable that checks if the number can be splitted into decimal
+
 
     
 
@@ -38,8 +39,8 @@ public class TreasureCoordinates{
     Each index will be a possible coordinate.
     */
     ArrayList <String> processedDigitsList=new ArrayList<>();
-   
-    //proceessedDigistList= listSplitter ()
+   ArrayList <String> intermediumList=new ArrayList<>();
+    //listSplitter (newList, intermediumList)
 
     //Returns the ArrayList of results
     return processedDigitsList;
@@ -59,9 +60,7 @@ public class TreasureCoordinates{
    
     //decimalGenerator Part
     ArrayList<String> xCoordinate=decimalGenerator(leftPart);
-    ArrayList<String> yCoordinate=decimalGenerator(rightPart);
-    
-  
+    ArrayList<String> yCoordinate=decimalGenerator(rightPart);  
  }
 
  /*This function will put a decimal in all available spaces*/
@@ -72,6 +71,10 @@ public class TreasureCoordinates{
     without decimals are going to be stored 
     */
     ArrayList<String> results = new ArrayList<>();
+    
+    //First store the possibilities without decimals
+    results.add(list);
+    
     //Activate flag if it is more than one number
  if(list.length()>0)
  {
@@ -80,9 +83,15 @@ isValid=true;
  //Start adding decimals if it is more than one number
  if(isValid)
  {
-
+/*Start at right of the first number and start adding ".". 
+Increase the i position after each iteration
+*/
+ for(int i=1;i<list.length();i++)
+ {
+ stringWithDecimals=list.substring(0, i) + "." + list.substring(i);
+ results.add(stringWithDecimals);
  }
-
+ }
  return results; 
  }
 }
