@@ -4,20 +4,20 @@ COP3503 Fall 2025
 Programming Assignment 2
 */
 import java.util.*;
-import java.util.ArrayList;
-public class TreasureCoordinates {
+public class TreasureCoordinates 
+{
 
 	//Function to find all possible combinations adding a decimal
 	public ArrayList<String> determineCoordinates(String rawDigits)
 	{
-		//Deletes the parenthesis of the parameter String
+		//Removes the parenthesis of the parameter String
 		String newList= rawDigits.substring(1,rawDigits.length() - 1);
 		
 		//Array List where all the combinations will be stored
 		ArrayList <String> processedDigitsList=new ArrayList<>();
 
         //Process the array
-		listSplitter (newList, processedDigitsList);
+		listSplitter(newList, processedDigitsList);
 		
 		return processedDigitsList;
 	}
@@ -26,7 +26,6 @@ public class TreasureCoordinates {
 	//This funcion will split the newList into all the possible combinations.
 	public void listSplitter(String list, ArrayList<String> processedDigitsList) 
     {
-
 		//Iterate and make all the combination possibilities
 		for(int i=1; i<list.length(); i++) 
         {
@@ -54,13 +53,12 @@ public class TreasureCoordinates {
 	//This function will put a decimal in all available spaces
 	public ArrayList<String> decimalGenerator(String list)
 	{
-		//ArrayList to store all the results
 		ArrayList<String> results = new ArrayList<>();
 
 		//Checks if the number can be splitted into decimal 
 		boolean isValid= list.length() >1;
 
-		//Removes irrelevant ceroes 
+		//Removes irrelevant zeros 
 		if(list.charAt(0)== '0') 
         {
 			if(list.length()==1) 
