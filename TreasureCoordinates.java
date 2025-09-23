@@ -6,6 +6,7 @@ Programming Assignment 2
 import java.util.*;
 import java.util.ArrayList;
 public class TreasureCoordinates{
+   
     /*Input: (123)
     Output:
     (1, 2.3)
@@ -13,17 +14,7 @@ public class TreasureCoordinates{
     (1.2, 3)
     (12, 3)
     */
-    //Boolean variable that checks if the number can be splitted into decimal
-    boolean isValid=false;
-//Main
-    public static void main(String[] args)
-{
 
-
-    
-
- 
-}
     /*
     This function takes a String of digits in between parenthesis and
     uses backtracking to find all possible combinations adding a decimal 
@@ -34,13 +25,15 @@ public class TreasureCoordinates{
     //This takes out the parenthesis of the parameter String
     String newList= rawDigits.substring(1,rawDigits.length() - 1);
     
-    /*
+      /*
+    Create the array List where all the combinations with and 
+    without decimals are going to be stored.
     This list will store all the possible combinations. Form (x,y)
     Each index will be a possible coordinate.
     */
     ArrayList <String> processedDigitsList=new ArrayList<>();
-   ArrayList <String> intermediumList=new ArrayList<>();
-    //listSplitter (newList, intermediumList)
+   
+   listSplitter (newList, processedDigitsList);
 
     //Returns the ArrayList of results
     return processedDigitsList;
@@ -49,33 +42,45 @@ public class TreasureCoordinates{
 
   //This funcion will split the newList into all the possible combinations.
 
- public void listSpliter(String list, ArrayList<String> results){
+ public void listSplitter(String list, ArrayList<String> processedDigitsList){
    
     //Iterate throught the list without parenthesis and make all the combination possibilities
     for(int i=1;i<list.length();i++){
         
         String leftPart= list.substring(0,i);
-        String rightPart=list.substring(i, list.length());
-    }
+        String rightPart=list.substring(i);
+    
    
     //decimalGenerator Part
     ArrayList<String> xCoordinate=decimalGenerator(leftPart);
     ArrayList<String> yCoordinate=decimalGenerator(rightPart);  
+
+    //Combine results into a coordinate
+    for(int i=0; i<xCoordinate.size();i++)
+    {
+        for (int j=0; j<yCoordinate.size(); j++)
+        {
+            String x=xCoordinate.get(i);
+            String y=yCoordinate.get(j);
+            processedDigitsList.add("(" + x + "," + y + ")");
+        }
+    }
+}
  }
 
  /*This function will put a decimal in all available spaces*/
  public ArrayList<String> decimalGenerator(String list)
- {
-    /*
-    Create the array List where all the combinations with and 
-    without decimals are going to be stored 
-    */
+ {  
+     /*Boolean variable that checks if the number can be splitted 
+     into decimal because the number has two or more digits*/
+    boolean isValid= list.length()>1;
+    //ArrayList to store all the results 
     ArrayList<String> results = new ArrayList<>();
-    
     //First store the possibilities without decimals
     results.add(list);
     
-    //Activate flag if it is more than one number
+    /*Activate flag if it is more than one number. 
+    A decimal can be added*/
  if(list.length()>0)
  {
 isValid=true;
@@ -88,8 +93,8 @@ Increase the i position after each iteration
 */
  for(int i=1;i<list.length();i++)
  {
- stringWithDecimals=list.substring(0, i) + "." + list.substring(i);
- results.add(stringWithDecimals);
+ String stringWithDecimals=list.substring(0, i) + "." + list.substring(i);
+results.add(stringWithDecimals);
  }
  }
  return results; 
