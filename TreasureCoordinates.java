@@ -13,7 +13,7 @@ public class TreasureCoordinates{
     (1.2, 3)
     (12, 3)
     */
-    boolean isValid=0;
+    boolean isValid=false;
 //Main
     public static void main(String[] args)
 {
@@ -49,11 +49,12 @@ public class TreasureCoordinates{
  public String listSpliter(String list){
     String result;
     //Iterate throught the list without parenthesis and make all the combination possibilities
-    for(int i=0;i<list.length();i++){
+    for(int i=1;i<list.length();i++){
         
-        String leftPart= list.substring(i);
-        String rightPart=list.substring(i+1, list.length()-1);
+        String leftPart= list.substring(0,i);
+        String rightPart=list.substring(i, list.length());
     }
+    
 result=leftPart+rightPart; //I dont know if this part is right but this is how I would do it
     
   //decimalGenerator
@@ -62,14 +63,15 @@ result=leftPart+rightPart; //I dont know if this part is right but this is how I
  /*This function will put a decimal in all available spaces*/
  public String decimalGenerator(String list)
  {
-//It is more than one number. Add a decimal
+//Activate flag if it is more than one number
  if(list.length()>0)
  {
 isValid=true;
  }
+ //Start adding decimals if it is more than one number
  if(isValid)
  {
-//Start adding decimals
+
  }
 
  }
