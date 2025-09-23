@@ -34,7 +34,7 @@ public class TreasureCoordinates{
     ArrayList <String> processedDigitsList=new ArrayList<>();
    
    listSplitter (newList, processedDigitsList);
-
+//Print for debugging purposes
    System.out.println("DEBUG: " + processedDigitsList);
     //Returns the ArrayList of results
     return processedDigitsList;
