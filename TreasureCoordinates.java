@@ -62,7 +62,7 @@ public class TreasureCoordinates{
         {
             String x=xCoordinate.get(j);
             String y=yCoordinate.get(k);
-            processedDigitsList.add("(" + j + "," + k + ")");
+            processedDigitsList.add("(" + x + "," + y + ")");
         }
     }
 }
@@ -73,18 +73,12 @@ public class TreasureCoordinates{
  {  
      /*Boolean variable that checks if the number can be splitted 
      into decimal because the number has two or more digits*/
-    boolean isValid= list.length()>1;
+    boolean isValid= list.length() >1;
     //ArrayList to store all the results 
     ArrayList<String> results = new ArrayList<>();
     //First store the possibilities without decimals
     results.add(list);
     
-    /*Activate flag if it is more than one number. 
-    A decimal can be added*/
- if(list.length()>0)
- {
-isValid=true;
- }
  //Start adding decimals if it is more than one number
  if(isValid)
  {
