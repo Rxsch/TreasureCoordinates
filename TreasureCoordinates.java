@@ -35,6 +35,7 @@ public class TreasureCoordinates{
    
    listSplitter (newList, processedDigitsList);
 
+   System.out.println("DEBUG: " + processedDigitsList);
     //Returns the ArrayList of results
     return processedDigitsList;
 }
@@ -60,7 +61,7 @@ public class TreasureCoordinates{
     for (int k = 0; k < yCoordinate.size(); k++) {
         String x = xCoordinate.get(j);
         String y = yCoordinate.get(k);
-        processedDigitsList.add("(" + x + "," + y + ")");
+        processedDigitsList.add("(" + x + ", " + y + ")");
     }
 }
 }
@@ -74,8 +75,7 @@ public class TreasureCoordinates{
     boolean isValid= list.length() >1;
     //ArrayList to store all the results 
     ArrayList<String> results = new ArrayList<>();
-    //First store the possibilities without decimals
-    results.add(list);
+    
 
  //Start adding decimals if it is more than one number
  if(isValid)
@@ -89,6 +89,8 @@ Increase the i position after each iteration
 results.add(stringWithDecimals);
  }
  }
+ //First store the possibilities without decimals
+    results.add(list);
  return results; 
  }
 }
