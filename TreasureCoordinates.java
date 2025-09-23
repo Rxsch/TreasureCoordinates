@@ -38,6 +38,8 @@ public class TreasureCoordinates{
     Each index will be a possible coordinate.
     */
     ArrayList <String> processedDigitsList=new ArrayList<>();
+   
+    //proceessedDigistList= listSplitter ()
 
     //Returns the ArrayList of results
     return processedDigitsList;
@@ -46,24 +48,31 @@ public class TreasureCoordinates{
 
   //This funcion will split the newList into all the possible combinations.
 
- public String listSpliter(String list){
-    String result;
+ public void listSpliter(String list, ArrayList<String> results){
+   
     //Iterate throught the list without parenthesis and make all the combination possibilities
     for(int i=1;i<list.length();i++){
         
         String leftPart= list.substring(0,i);
         String rightPart=list.substring(i, list.length());
     }
+   
+    //decimalGenerator Part
+    ArrayList<String> xCoordinate=decimalGenerator(leftPart);
+    ArrayList<String> yCoordinate=decimalGenerator(rightPart);
     
-result=leftPart+rightPart; //I dont know if this part is right but this is how I would do it
-    
-  //decimalGenerator
+  
  }
 
  /*This function will put a decimal in all available spaces*/
- public String decimalGenerator(String list)
+ public ArrayList<String> decimalGenerator(String list)
  {
-//Activate flag if it is more than one number
+    /*
+    Create the array List where all the combinations with and 
+    without decimals are going to be stored 
+    */
+    ArrayList<String> results = new ArrayList<>();
+    //Activate flag if it is more than one number
  if(list.length()>0)
  {
 isValid=true;
@@ -74,6 +83,7 @@ isValid=true;
 
  }
 
+ return results; 
  }
 }
 
