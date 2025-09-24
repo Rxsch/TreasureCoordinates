@@ -22,7 +22,6 @@ public class TreasureCoordinates
 		return processedDigitsList;
 	}
 
-
 	//This funcion splits the newList into all the possible combinations.
 	public void listSplitterRecursive(String list, int commaPos, ArrayList<String> processedDigitsList) 
     {
