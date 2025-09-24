@@ -23,7 +23,7 @@ public class TreasureCoordinates
 	}
 
 
-	//This funcion will split the newList into all the possible combinations.
+	//This funcion splits the newList into all the possible combinations.
 	public void listSplitterRecursive(String list, int commaPos, ArrayList<String> processedDigitsList) 
     {
 		//Base case.
@@ -49,8 +49,9 @@ public class TreasureCoordinates
 					processedDigitsList.add("(" + x + ", " + y + ")");
 				}
 			}
+
 			listSplitterRecursive(list, commaPos+1, processedDigitsList);
-		
+
 	}
 
 	//This function will put a decimal in all available spaces
@@ -75,8 +76,8 @@ public class TreasureCoordinates
 			return results;
 		}
 
-//Part that handles regular cases without irrelevant 0's
-//Start adding decimals if it is more than one number
+//Part that handles regular cases 
+//Start adding decimals 
 		if(isValid)
 		{
 			//Start at right of the first number and add "."
