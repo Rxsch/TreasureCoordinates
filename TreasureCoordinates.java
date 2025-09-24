@@ -13,7 +13,7 @@ public class TreasureCoordinates
 		//Removes the parenthesis of the parameter String
 		String newList= rawDigits.substring(1,rawDigits.length() - 1);
 		
-		//Array List where all the combinations will be stored
+		//ArrayList where all the combinations will be stored
 		ArrayList <String> processedDigitsList=new ArrayList<>();
 
         //Process the array
