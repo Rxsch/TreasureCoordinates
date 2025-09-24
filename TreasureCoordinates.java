@@ -17,21 +17,23 @@ public class TreasureCoordinates
 		ArrayList <String> processedDigitsList=new ArrayList<>();
 
         //Process the array
-		listSplitter(newList, processedDigitsList);
+		listSplitterRecursive(newList,1 , processedDigitsList);
 		
 		return processedDigitsList;
 	}
 
 
 	//This funcion will split the newList into all the possible combinations.
-	public void listSplitter(String list, ArrayList<String> processedDigitsList) 
+	public void listSplitterRecursive(String list, int commaPos, ArrayList<String> processedDigitsList) 
     {
-		//Iterate and make all the combination possibilities
-		for(int i=1; i<list.length(); i++) 
-        {
-
-			String leftPart= list.substring(0,i);
-			String rightPart=list.substring(i);
+		//Base case.
+		if(commaPos >= list.length()) 
+		{
+			return;
+		}
+		//Split into left and right partss 
+			String leftPart= list.substring(0,commaPos);
+			String rightPart=list.substring(commaPos);
 
             //Add decimals
 			ArrayList<String> xCoordinate=decimalGenerator(leftPart);
@@ -47,7 +49,8 @@ public class TreasureCoordinates
 					processedDigitsList.add("(" + x + ", " + y + ")");
 				}
 			}
-		}
+			listSplitterRecursive(list, commaPos+1, processedDigitsList);
+		
 	}
 
 	//This function will put a decimal in all available spaces
