@@ -1,7 +1,7 @@
 /* Daniel Rangosch
-Dr. Steinberg
-COP3503 Fall 2025
-Programming Assignment 2
+ * Dr. Steinberg
+ * COP3503 Fall 2025
+ *Programming Assignment 2
 */
 import java.util.*;
 public class TreasureCoordinates 
@@ -31,25 +31,25 @@ public class TreasureCoordinates
 			return;
 		}
 		//Split into left and right partss 
-			String leftPart= list.substring(0,commaPos);
-			String rightPart=list.substring(commaPos);
+		String leftPart= list.substring(0,commaPos);
+		String rightPart=list.substring(commaPos);
 
-            //Add decimals
-			ArrayList<String> xCoordinate=decimalGenerator(leftPart);
-			ArrayList<String> yCoordinate=decimalGenerator(rightPart);
+        //Add decimals
+		ArrayList<String> xCoordinate=decimalGenerator(leftPart);
+		ArrayList<String> yCoordinate=decimalGenerator(rightPart);
 
-			//Combine results into a coordinate
-			for (int j = 0; j < xCoordinate.size(); j++) 
+		//Combine results into a coordinate
+		for (int j = 0; j < xCoordinate.size(); j++) 
+        {
+			for (int k = 0; k < yCoordinate.size(); k++) 
             {
-				for (int k = 0; k < yCoordinate.size(); k++) 
-                {
 					String x = xCoordinate.get(j);
 					String y = yCoordinate.get(k);
 					processedDigitsList.add("(" + x + ", " + y + ")");
-				}
 			}
+		}
 
-			listSplitterRecursive(list, commaPos+1, processedDigitsList);
+		listSplitterRecursive(list, commaPos+1, processedDigitsList);
 
 	}
 
@@ -75,9 +75,9 @@ public class TreasureCoordinates
 			return results;
 		}
 
-//Part that handles regular cases 
-//Start adding decimals 
-		if(isValid)
+		//Part that handles regular cases 
+		//Start adding decimals 
+		if(isValid) 
 		{
 			//Start at right of the first number and add "."
 			for(int i=1; i<list.length(); i++)
@@ -86,7 +86,7 @@ public class TreasureCoordinates
 				results.add(stringWithDecimals);
 			}
 		}
-//Store the possibilities without decimals
+		//Store the possibilities without decimals
 		results.add(list);
 		return results;
 	}
