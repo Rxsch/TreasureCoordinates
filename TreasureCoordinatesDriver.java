@@ -38,12 +38,12 @@ public class TreasureCoordinatesDriver
 		
 		
 		s = "(0123)";
-		System.out.println("Test Case 2 with coordinates (123000)");
+		System.out.println("Test Case 2 with coordinates (0123)");
 		
 		ArrayList<String> test2 = obj.determineCoordinates(s);
 		Collections.sort(test2);
 		
-		if(test2.toString().compareTo("[(0, 1.23), (0, 12.3), (0, 123), (0.1,2.3), (0.1, 23), (0.12, 3)]") == 0)
+		if(test2.toString().compareTo("[(0, 1.23), (0, 12.3), (0, 123), (0.1, 2.3), (0.1, 23), (0.12, 3)]") == 0)
 		{
 			System.out.println("Test Case 2 Passed!");
 			++pass;
