@@ -18,7 +18,7 @@ public class TreasureCoordinates
 
 		//Process the array
 		listSplitterRecursive(newList,1, processedDigitsList);
-		System.out.println(processedDigitsList);
+		
 		return processedDigitsList;
 	}
 
