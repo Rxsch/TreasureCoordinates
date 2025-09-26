@@ -25,7 +25,7 @@ public class TreasureCoordinates
 	//This funcion splits the newList into all the possible combinations.
 	public void listSplitterRecursive(String list, int commaPos, ArrayList<String> processedDigitsList)
 	{
-		//Base case.
+		//Base case
 		if(commaPos >= list.length())
 		{
 			return;
@@ -54,46 +54,46 @@ public class TreasureCoordinates
 	}
 
 	//This function will put a decimal in all available spaces
-public ArrayList<String> decimalGenerator(String list)
-{
-    ArrayList<String> results = new ArrayList<>();
+	public ArrayList<String> decimalGenerator(String list)
+	{
+		ArrayList<String> results = new ArrayList<>();
 
-    // Case only 0
-    if (list.charAt(0) == '0') {
-        if (list.length() == 1) {
-            results.add("0");
-        } 
-		//Cases like 0. 0000001
-		else if (list.charAt(list.length() - 1) != '0') {
-            results.add("0." + list.substring(1));
-        }
-        return results;
-    }
+		// Case only 0
+		if (list.charAt(0) == '0') {
+			if (list.length() == 1) {
+				results.add("0");
+			}
+			//Case 0.0001
+			else if (list.charAt(list.length() - 1) != '0') {
+				results.add("0." + list.substring(1));
+			}
+			return results;
+		}
 
-    // Parte que maneja casos normales
-    if (list.length() > 1) {
-        for (int i = 1; i < list.length(); i++) {
-            String rightPart = list.substring(i);
+		//Part that handles regular cases
+		if (list.length() > 1) {
+			for (int i = 1; i < list.length(); i++) {
+				String rightPart = list.substring(i);
 
-            // Verificar si la parte decimal no son solo ceros
-            boolean allZeros = true;
-            for (int j = 0; j < rightPart.length(); j++) {
-                if (rightPart.charAt(j) != '0') {
-                    allZeros = false;
-                    break;
-                }
-            }
+				// Check if all numbers are zeros
+				boolean allZeros = true;
+				for (int j = 0; j < rightPart.length(); j++) {
+					if (rightPart.charAt(j) != '0') {
+						allZeros = false;
+						break;
+					}
+				}
 
-            // Si no son todos ceros y no termina en cero, entonces es válido
-            if (!allZeros && rightPart.charAt(rightPart.length() - 1) != '0') {
-                String stringWithDecimals = list.substring(0, i) + "." + rightPart;
-                results.add(stringWithDecimals);
-            }
-        }
-    }
+				// If all numbers are not zero and the last number is not zero, add.
+				if (!allZeros && rightPart.charAt(rightPart.length() - 1) != '0') {
+					String stringWithDecimals = list.substring(0, i) + "." + rightPart;
+					results.add(stringWithDecimals);
+				}
+			}
+		}
 
-    // Siempre añadir el número entero como opción
-    results.add(list);
-    return results;
-}
+		// Add number without decimals as option
+		results.add(list);
+		return results;
+	}
 }
